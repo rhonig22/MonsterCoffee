@@ -19,6 +19,15 @@ public class PlayerManager : MonoBehaviour
     }
     public int DayCount { get; private set; } = 1;
     public float Rating { get; private set; } = 1;
+    public GameObject CurrentlyDragging { get; private set; } = null;
+
+    public void StartDragging(GameObject target)
+    {
+        if (CurrentlyDragging == null || target == null)
+        {
+            CurrentlyDragging = target;
+        }
+    }
 
     public void UpdateAllUX()
     {

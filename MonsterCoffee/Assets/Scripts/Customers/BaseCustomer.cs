@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,4 +13,10 @@ public class BaseCustomer : MonoBehaviour
     {
         _countdownTimer.StartTimer(_maxTime);
     }
+
+    public void RecieveOrder(GameObject dropped)
+    {
+        Debug.Log(dropped.ToString());
+    }
+
 }

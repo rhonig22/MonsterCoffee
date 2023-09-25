@@ -32,4 +32,8 @@ public class CountdownTimer : MonoBehaviour
         _maxTime = time;
         _isStarted = true;
     }
+    public void StopTimer()
+    {
+        _isStarted = false;
+    }
 }

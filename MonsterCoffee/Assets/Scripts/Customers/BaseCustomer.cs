@@ -11,12 +11,21 @@ public class BaseCustomer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _countdownTimer.TimerFinished.AddListener(Leave);
         _countdownTimer.StartTimer(_maxTime);
     }
 
     public void RecieveOrder(GameObject dropped)
     {
-        Debug.Log(dropped.ToString());
+        var cup = dropped.GetComponent<Cup>();
+        if (cup != null)
+        {
+            _countdownTimer.StopTimer();
+        }
     }
 
+    public void Leave()
+    {
+        Destroy(gameObject);
+    }
 }

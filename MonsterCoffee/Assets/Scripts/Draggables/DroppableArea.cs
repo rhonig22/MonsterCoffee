@@ -9,14 +9,20 @@ public class DroppableArea : MonoBehaviour
     public UnityEvent<GameObject> droppedOn = new UnityEvent<GameObject>();
     private void OnMouseEnter()
     {
-        currentlyDragging = PlayerManager.Instance.CurrentlyDragging.GetComponent<DraggableObject>();
-        currentlyDragging.Dropped.AddListener(OnDropped);
+        if (PlayerManager.Instance.CurrentlyDragging != null)
+        {
+            currentlyDragging = PlayerManager.Instance.CurrentlyDragging.GetComponent<DraggableObject>();
+            currentlyDragging.Dropped.AddListener(OnDropped);
+        }
     }
 
     private void OnMouseExit()
     {
-        currentlyDragging.Dropped.RemoveListener(OnDropped);
-        currentlyDragging = null;
+        if (currentlyDragging != null)
+        {
+            currentlyDragging.Dropped.RemoveListener(OnDropped);
+            currentlyDragging = null;
+        }
     }
 
     private void OnDropped()

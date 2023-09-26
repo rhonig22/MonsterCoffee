@@ -7,10 +7,22 @@ public class BaseIngredient : MonoBehaviour
     public IngredientType IngredientType;
     public int Quantity = 1;
     public Color SpriteColor = Color.white;
+    private BaseGenerator _generator;
 
     private void Awake()
     {
         GetComponent<SpriteRenderer>().color = SpriteColor;
+    }
+
+    public void SetGenerator(BaseGenerator generator)
+    {
+        if (_generator == null)
+            _generator = generator;
+    }
+
+    private void OnDestroy()
+    {
+        _generator.RemoveCurrentIngredient();
     }
 }
 

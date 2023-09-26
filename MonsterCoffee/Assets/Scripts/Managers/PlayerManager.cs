@@ -42,6 +42,27 @@ public class PlayerManager : MonoBehaviour
         UpdateAllUX();
     }
 
+    public void AddCash(int amount)
+    {
+        CashOnHand += amount;
+    }
+    public void SpendCash(int amount)
+    {
+        CashOnHand -= amount;
+    }
+
+    public void IncreaseRating(float amount)
+    {
+        Rating += amount;
+        if (Rating > 5) Rating = 5;
+    }
+
+    public void DecreaseRating(float amount)
+    {
+        Rating -= amount;
+        if (Rating < 0) Rating = 0;
+    }
+
     private void Awake()
     {
         Instance = this;

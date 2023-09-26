@@ -14,9 +14,13 @@ public class DraggableObject : MonoBehaviour
 
     private void Awake()
     {
-        _originalPos = transform.position;
         _camera = Camera.main;
         _boxCollider2D = GetComponent<BoxCollider2D>();
+    }
+    private void Start()
+    {
+        _originalPos = transform.position;
+
     }
 
     private void Update()

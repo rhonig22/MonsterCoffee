@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BaseCustomer : MonoBehaviour
 {
-    [SerializeField] private List<IngredientType> _preferredIngredients;
+    [SerializeField] private DrinkNames _preferredDrink;
     [SerializeField] private List<IngredientType> _dislikes;
     [SerializeField] private CountdownTimer _countdownTimer;
     [SerializeField] private float _maxTime;
@@ -23,7 +23,7 @@ public class BaseCustomer : MonoBehaviour
         if (cup != null)
         {
             _countdownTimer.StopTimer();
-            var success = DrinkValidator.ValidateDrink(cup.Ingredients, _preferredIngredients, _dislikes);
+            var success = DrinkValidator.ValidateDrink(cup.Ingredients, DrinkNameConverter.GetIngredientList(_preferredDrink), _dislikes);
             switch (success)
             {
                 case DrinkSuccess.Wrong:

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f02191d27faae6a40bcae74f950316c0, type: 3}
-  m_Name: Cream
+  m_Name: HotWater
   m_EditorClassIdentifier: 
-  Type: 3
-  IngredientPrefab: {fileID: 5984806596527828836, guid: 96010a4f1270e3a41b15ec702b86aaf6, type: 3}
+  Type: 6
+  IngredientPrefab: {fileID: 5684011849085865571, guid: c96bdfba909aa0441a03a2615743a440, type: 3}

@@ -29,9 +29,10 @@ public class BaseIngredient : MonoBehaviour
 public enum IngredientType
 {
     Espresso = 0,
-    Milk = 1,
+    Teabag = 1,
     SteamedMilk = 2,
-    Cream = 3,
+    Ice = 3,
     Sugar = 4,
-    Chocolate = 5
+    Chocolate = 5,
+    HotWater = 6
 }

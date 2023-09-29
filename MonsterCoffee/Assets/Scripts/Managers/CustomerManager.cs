@@ -18,6 +18,10 @@ public class CustomerManager : MonoBehaviour
 
     private void Start()
     {
+    }
+
+    public void SetUpCustomersForTheDay(int day)
+    {
         _customerList.Clear();
         _customerList.Add(new Customer() { Creature = CreatureTypes.Skeleton, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
         _customerList.Add(new Customer() { Creature = CreatureTypes.Ghost, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
@@ -33,6 +37,9 @@ public class CustomerManager : MonoBehaviour
 
     public void SpawnNextCustomer()
     {
+        if (_customerList.Count == 0)
+            return;
+
         var nextCustomer = _customerList[0];
         _customerList.RemoveAt(0);
         var prefab = GetCustomerPrefab(nextCustomer);

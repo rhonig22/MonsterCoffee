@@ -55,12 +55,14 @@ public class PlayerManager : MonoBehaviour
     {
         Rating += amount;
         if (Rating > 5) Rating = 5;
+        UXManager.Instance.UpdateRating(Rating);
     }
 
     public void DecreaseRating(float amount)
     {
         Rating -= amount;
         if (Rating < 0) Rating = 0;
+        UXManager.Instance.UpdateRating(Rating);
     }
 
     private void Awake()

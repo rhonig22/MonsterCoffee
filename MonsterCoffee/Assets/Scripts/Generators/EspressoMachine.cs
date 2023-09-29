@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class EspressoMachine : BaseGenerator
 {
+    [SerializeField] private AudioSource _audioSource;
+
     private void OnMouseUp()
     {
         GenerateIngredient(1);
+        _audioSource.Play();
     }
 }

@@ -6,9 +6,10 @@ public class Cup : MonoBehaviour
 {
     public int Capacity = 3;
     public List<IngredientType> Ingredients;
-    [SerializeField] private SpriteRenderer top;
-    [SerializeField] private SpriteRenderer mid;
-    [SerializeField] private SpriteRenderer bottom;
+    [SerializeField] private SpriteRenderer _top;
+    [SerializeField] private SpriteRenderer _mid;
+    [SerializeField] private SpriteRenderer _bottom;
+    [SerializeField] private AudioSource _audioSource;
 
     public void RecieveIngredient(GameObject dropped)
     {
@@ -23,17 +24,18 @@ public class Cup : MonoBehaviour
     {
         if (Ingredients.Count < Capacity)
         {
+            _audioSource.Play();
             Ingredients.Add(ingredient.IngredientType);
             switch (Ingredients.Count)
             {
                 case 1:
-                    bottom.color = ingredient.SpriteColor;
+                    _bottom.color = ingredient.SpriteColor;
                     break;
                 case 2:
-                    mid.color = ingredient.SpriteColor;
+                    _mid.color = ingredient.SpriteColor;
                     break;
                 case 3:
-                    top.color = ingredient.SpriteColor;
+                    _top.color = ingredient.SpriteColor;
                     break;
                 default:
                     break;

@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     public void NextGameState()
     {
-        var nextState = (GameState)((int)_currentState + 1 % Enum.GetValues(typeof(GameState)).Length);
+        var nextState = (GameState)(((int)_currentState + 1) % Enum.GetValues(typeof(GameState)).Length);
         _StartGameState(nextState);
     }
 
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
             case GameState.StartDay:
                 if (PlayerManager.Instance.DayCount == 1)
                     PlayerManager.Instance.UpdateAllUX();
+                CustomerManager.Instance.SetUpCustomersForTheDay(PlayerManager.Instance.DayCount);
                 NextGameState();
                 break;
             case GameState.SpawnCustomer:

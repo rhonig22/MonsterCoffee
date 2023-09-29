@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public GameState CurrentState { get; private set; } = GameState.StartDay;
+    [SerializeField] private GameState _currentState = GameState.StartDay;
 
     private void Awake()
     {
@@ -16,17 +16,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _StartGameState(CurrentState);
+        _StartGameState(_currentState);
     }
 
     public void NextGameState()
     {
-        CurrentState = (GameState)((int)CurrentState + 1 % Enum.GetValues(typeof(GameState)).Length);
-        _StartGameState(CurrentState);
+        var nextState = (GameState)((int)_currentState + 1 % Enum.GetValues(typeof(GameState)).Length);
+        _StartGameState(nextState);
     }
 
     private void _StartGameState(GameState state)
     {
+        _currentState = state;
         switch (state)
         {
             case GameState.StartDay:
@@ -34,11 +35,22 @@ public class GameManager : MonoBehaviour
                     PlayerManager.Instance.UpdateAllUX();
                 NextGameState();
                 break;
-            case GameState.Customers:
+            case GameState.SpawnCustomer:
+                CustomerManager.Instance.SpawnNextCustomer();
+                NextGameState();
                 break;
-            case GameState.CloseShop:
+            case GameState.PickCup:
+                NextGameState();
+                break;
+            case GameState.MakeDrink:
                 break;
             case GameState.EndDay:
+                if (CustomerManager.Instance.HasMoreCustomers())
+                {
+                    _StartGameState(GameState.SpawnCustomer);
+                    break;
+                }
+
                 PlayerManager.Instance.IncreaseDay();
                 NextGameState();
                 break;
@@ -56,7 +68,8 @@ public enum GameEvents
 public enum GameState
 {
     StartDay = 0,
-    Customers = 1,
-    CloseShop = 2,
-    EndDay = 3
+    SpawnCustomer = 1,
+    PickCup = 2,
+    MakeDrink = 3,
+    EndDay = 4
 }

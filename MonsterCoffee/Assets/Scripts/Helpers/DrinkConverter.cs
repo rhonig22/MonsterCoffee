@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class DrinkNameConverter
+public static class DrinkConverter
 {
     public static List<IngredientType> GetIngredientList(DrinkNames drinkName)
     {

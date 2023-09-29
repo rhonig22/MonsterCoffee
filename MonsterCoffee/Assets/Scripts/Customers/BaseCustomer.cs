@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class BaseCustomer : MonoBehaviour
 {
+    [SerializeField] private CreatureTypes _creatureType;
+    [SerializeField] private HeadModifier _headModifier;
+    [SerializeField] private FaceModifier _faceModifier;
     [SerializeField] private DrinkNames _preferredDrink;
     [SerializeField] private List<IngredientType> _dislikes;
     [SerializeField] private CountdownTimer _countdownTimer;
@@ -23,7 +26,7 @@ public class BaseCustomer : MonoBehaviour
         if (cup != null)
         {
             _countdownTimer.StopTimer();
-            var success = DrinkValidator.ValidateDrink(cup.Ingredients, DrinkNameConverter.GetIngredientList(_preferredDrink), _dislikes);
+            var success = DrinkValidator.ValidateDrink(cup.Ingredients, DrinkConverter.GetIngredientList(_preferredDrink), _dislikes);
             switch (success)
             {
                 case DrinkSuccess.Wrong:
@@ -48,5 +51,29 @@ public class BaseCustomer : MonoBehaviour
     public void Leave()
     {
         Destroy(gameObject);
+        GameManager.Instance.NextGameState();
     }
+}
+
+public enum CreatureTypes
+{
+    Ghost = 0,
+    Skeleton = 1,
+    Reaper = 2,
+    SeaCreature = 3,
+    Cthulhu = 4
+}
+
+public enum HeadModifier
+{
+    Plain = 0,
+    Helmet = 1,
+    PirateHat = 2,
+}
+
+public enum FaceModifier
+{
+    Plain = 0,
+    EyePatch = 1,
+    Bandage = 2
 }

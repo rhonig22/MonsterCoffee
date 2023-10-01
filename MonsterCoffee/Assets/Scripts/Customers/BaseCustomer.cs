@@ -39,6 +39,7 @@ public class BaseCustomer : MonoBehaviour
                 case DrinkSuccess.Wrong:
                     _dialogueBox?.SetText(_drinkWrong);
                     PlayerManager.Instance.DecreaseRating(.2f);
+                    CustomerManager.Instance.RedoCustomer();
                     break;
                 case DrinkSuccess.Fine:
                     _dialogueBox?.SetText(_drinkClose);
@@ -58,9 +59,16 @@ public class BaseCustomer : MonoBehaviour
         }
     }
 
+    public void TimeRanOut()
+    {
+        CustomerManager.Instance.RedoCustomer();
+        Leave();
+    }
+
     public void Leave()
     {
         _dialogueBox?.gameObject.SetActive(false);
+        _countdownTimer?.gameObject.SetActive(false);
         var lerper = GetComponent<Lerper>();
         lerper.TargetReached.AddListener(Remove);
         lerper.StartLerping(transform.position - Vector3.right * 12, 5);
@@ -69,7 +77,7 @@ public class BaseCustomer : MonoBehaviour
 
     public void Remove()
     {
-        GameManager.Instance.NextGameState();
+        GameManager.Instance.EndDay();
         Destroy(gameObject);
     }
 
@@ -85,7 +93,7 @@ public class BaseCustomer : MonoBehaviour
     {
         _dialogueBox?.gameObject.SetActive(false);
         _countdownTimer?.gameObject.SetActive(true);
-        _countdownTimer.TimerFinished.AddListener(Leave);
+        _countdownTimer.TimerFinished.AddListener(TimeRanOut);
         _countdownTimer.StartTimer(_maxTime);
         GameManager.Instance.NextGameState();
     }

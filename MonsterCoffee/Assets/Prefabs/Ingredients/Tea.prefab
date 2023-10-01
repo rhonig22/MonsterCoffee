@@ -61,27 +61,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2084709591448999774, guid: 05eb2be6c4fd8e44ebede169082fd9e4, type: 3}
       propertyPath: m_Color.b
-      value: 0.5473478
+      value: 0.827451
       objectReference: {fileID: 0}
     - target: {fileID: 2084709591448999774, guid: 05eb2be6c4fd8e44ebede169082fd9e4, type: 3}
       propertyPath: m_Color.g
-      value: 0.8094431
+      value: 0.8509804
       objectReference: {fileID: 0}
     - target: {fileID: 2084709591448999774, guid: 05eb2be6c4fd8e44ebede169082fd9e4, type: 3}
       propertyPath: m_Color.r
-      value: 0.9433962
+      value: 0.69803923
       objectReference: {fileID: 0}
     - target: {fileID: 5196207735487073565, guid: 05eb2be6c4fd8e44ebede169082fd9e4, type: 3}
       propertyPath: SpriteColor.b
-      value: 0.54901963
+      value: 0.827451
       objectReference: {fileID: 0}
     - target: {fileID: 5196207735487073565, guid: 05eb2be6c4fd8e44ebede169082fd9e4, type: 3}
       propertyPath: SpriteColor.g
-      value: 0.8078432
+      value: 0.8509804
       objectReference: {fileID: 0}
     - target: {fileID: 5196207735487073565, guid: 05eb2be6c4fd8e44ebede169082fd9e4, type: 3}
       propertyPath: SpriteColor.r
-      value: 0.9450981
+      value: 0.69803923
       objectReference: {fileID: 0}
     - target: {fileID: 5196207735487073565, guid: 05eb2be6c4fd8e44ebede169082fd9e4, type: 3}
       propertyPath: IngredientType

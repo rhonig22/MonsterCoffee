@@ -55,10 +55,10 @@ MonoBehaviour:
   _headModifier: 0
   _faceModifier: 0
   _preferredDrink: 0
-  _dislikes: 04000000
+  _dislikes: 0400000002000000
   _countdownTimer: {fileID: 7810582505441044060}
   _dialogueBox: {fileID: 8139642441437696310}
-  _maxTime: 10
+  _maxTime: 20
   _animator: {fileID: 2122368665614461226}
   _drinkOrder: I drink my coffee black as midnight on a moonless night.
   _drinkCorrect: A Doppio is the perfect pick me up!

@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public readonly int MaxDays = 1;
 
     [SerializeField] private GameState _currentState = GameState.StartDay;
 
@@ -25,6 +27,11 @@ public class GameManager : MonoBehaviour
         _StartGameState(nextState);
     }
 
+    public void EndDay()
+    {
+        _StartGameState(GameState.EndDay);
+    }
+
     private void _StartGameState(GameState state)
     {
         _currentState = state;
@@ -40,9 +47,10 @@ public class GameManager : MonoBehaviour
                 CustomerManager.Instance.SpawnNextCustomer();
                 break;
             case GameState.PickCup:
-                NextGameState();
+                GeneratorManager.Instance.EnableCupGenerators();
                 break;
             case GameState.MakeDrink:
+                GeneratorManager.Instance.DisableCupGenerators();
                 break;
             case GameState.EndDay:
                 if (CustomerManager.Instance.HasMoreCustomers())
@@ -52,11 +60,19 @@ public class GameManager : MonoBehaviour
                 }
 
                 PlayerManager.Instance.IncreaseDay();
-                NextGameState();
+                if (PlayerManager.Instance.DayCount > MaxDays)
+                    EndGame();
+                else
+                    NextGameState();
                 break;
             default:
                 break;
         }
+    }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene("CreditsScreen");
     }
 }
 

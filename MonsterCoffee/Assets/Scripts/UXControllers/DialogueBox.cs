@@ -45,6 +45,7 @@ public class DialogueBox : MonoBehaviour
         _fullText = text;
         _currentTime = 0;
         _currentText = "";
+        _textBox.text = _currentText;
     }
 
     private void AddLetter()

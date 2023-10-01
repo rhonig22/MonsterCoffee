@@ -58,9 +58,9 @@ MonoBehaviour:
   _dislikes: 04000000
   _countdownTimer: {fileID: 7810582505441044060}
   _dialogueBox: {fileID: 4066328049665754845}
-  _maxTime: 10
+  _maxTime: 20
   _animator: {fileID: 9176403645509602981}
-  _drinkOrder: I like my lattes bone dry!
+  _drinkOrder: I like my milk foam bone dry!
   _drinkCorrect: I love a good cappuccino!
   _drinkWrong: Blegh! This is not my order!
   _drinkClose: Not quite, but I can drink this.

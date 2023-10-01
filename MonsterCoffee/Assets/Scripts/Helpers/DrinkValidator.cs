@@ -23,7 +23,7 @@ public static class DrinkValidator
             }
         }
 
-        if (matches <= 1)
+        if (ingredients.Count - matches >= 2)
             return DrinkSuccess.Wrong;
         else if (matches == ingredients.Count && matches == givenDrink.Count)
             return DrinkSuccess.Perfect;

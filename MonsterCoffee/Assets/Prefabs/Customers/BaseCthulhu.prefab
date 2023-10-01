@@ -58,9 +58,10 @@ MonoBehaviour:
   _dislikes: 04000000
   _countdownTimer: {fileID: 7810582505441044060}
   _dialogueBox: {fileID: 8642569289078448489}
-  _maxTime: 10
+  _maxTime: 20
   _animator: {fileID: 3690749333461460381}
-  _drinkOrder: I'd love something spicy and comforting.
+  _drinkOrder: Even though I'm a world destroyer, I just want some creamy, spicy
+    comfort.
   _drinkCorrect: Chai Latte?! My favorite!
   _drinkWrong: Blegh! This is not my order!
   _drinkClose: Not quite, but I can drink this.

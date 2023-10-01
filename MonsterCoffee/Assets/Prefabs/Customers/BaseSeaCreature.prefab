@@ -55,10 +55,10 @@ MonoBehaviour:
   _headModifier: 0
   _faceModifier: 0
   _preferredDrink: 3
-  _dislikes: 04000000
+  _dislikes: 0400000002000000
   _countdownTimer: {fileID: 7810582505441044060}
   _dialogueBox: {fileID: 5103556477587623103}
-  _maxTime: 10
+  _maxTime: 20
   _animator: {fileID: 4714668892949952805}
   _drinkOrder: The closer it is to water, the better!
   _drinkCorrect: Ah, a nice cuppa tea!

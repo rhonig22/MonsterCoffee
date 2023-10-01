@@ -21,7 +21,7 @@ public static class DrinkConverter
             case DrinkNames.HotWater:
                 return new List<IngredientType>() { IngredientType.HotWater, IngredientType.HotWater };
             case DrinkNames.Mocha:
-                return new List<IngredientType>() { IngredientType.Espresso, IngredientType.SteamedMilk, IngredientType.Chocolate };
+                return new List<IngredientType>() { IngredientType.Espresso, IngredientType.SteamedMilk, IngredientType.Chocolate };                                       
             case DrinkNames.IcedCoffee:
                 return new List<IngredientType>() { IngredientType.Espresso, IngredientType.Espresso, IngredientType.Ice };
             case DrinkNames.IcedLatte:
@@ -36,6 +36,8 @@ public static class DrinkConverter
                 return new List<IngredientType>() { IngredientType.SteamedMilk, IngredientType.Chocolate, IngredientType.Ice };
             case DrinkNames.DirtyChai:
                 return new List<IngredientType>() { IngredientType.Teabag, IngredientType.SteamedMilk, IngredientType.Espresso };
+            case DrinkNames.ChocolateMintTea:
+                return new List<IngredientType>() { IngredientType.Teabag, IngredientType.HotWater, IngredientType.Chocolate };
             default:
                 return null;
         }
@@ -58,4 +60,5 @@ public enum DrinkNames
     ChaiLatte = 11,
     DirtyChai = 12,
     MilkShake = 13,
+    ChocolateMintTea = 14,
 }

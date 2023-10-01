@@ -55,10 +55,10 @@ MonoBehaviour:
   _headModifier: 0
   _faceModifier: 0
   _preferredDrink: 2
-  _dislikes: 04000000
+  _dislikes: 040000000000000001000000
   _countdownTimer: {fileID: 7810582505441044060}
   _dialogueBox: {fileID: 6212289504388571464}
-  _maxTime: 10
+  _maxTime: 20
   _animator: {fileID: 925609383018294501}
   _drinkOrder: Caffeine goes right through me these days.
   _drinkCorrect: Warm milk!? Simply delicious!

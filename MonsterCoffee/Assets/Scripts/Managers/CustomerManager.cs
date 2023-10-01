@@ -44,7 +44,11 @@ public class CustomerManager : MonoBehaviour
         _customerList.RemoveAt(0);
         var prefab = GetCustomerPrefab(nextCustomer);
         var customer = Instantiate(prefab);
-        customer.transform.SetLocalPositionAndRotation(transform.position, transform.rotation);
+        customer.transform.SetLocalPositionAndRotation(transform.position - Vector3.right * 12, transform.rotation);
+        var lerper = customer.GetComponent<Lerper>();
+        lerper.StartLerping(transform.position, 5);
+        lerper.TargetReached.AddListener(customer.StartDrinkOrder);
+        customer.StartWalking();
     }
 
     private BaseCustomer GetCustomerPrefab(Customer customer)

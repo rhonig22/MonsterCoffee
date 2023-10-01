@@ -34,11 +34,10 @@ public class GameManager : MonoBehaviour
                 if (PlayerManager.Instance.DayCount == 1)
                     PlayerManager.Instance.UpdateAllUX();
                 CustomerManager.Instance.SetUpCustomersForTheDay(PlayerManager.Instance.DayCount);
-                NextGameState();
+                UXManager.Instance.ShowDayBoard(PlayerManager.Instance.DayCount);
                 break;
             case GameState.SpawnCustomer:
                 CustomerManager.Instance.SpawnNextCustomer();
-                NextGameState();
                 break;
             case GameState.PickCup:
                 NextGameState();

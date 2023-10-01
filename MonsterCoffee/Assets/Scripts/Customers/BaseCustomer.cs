@@ -11,13 +11,17 @@ public class BaseCustomer : MonoBehaviour
     [SerializeField] private DrinkNames _preferredDrink;
     [SerializeField] private List<IngredientType> _dislikes;
     [SerializeField] private CountdownTimer _countdownTimer;
+    [SerializeField] private DialogueBox _dialogueBox;
     [SerializeField] private float _maxTime;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private string _drinkOrder;
+    [SerializeField] private string _drinkCorrect;
+    [SerializeField] private string _drinkWrong;
+    [SerializeField] private string _drinkClose;
 
     // Start is called before the first frame update
     void Start()
     {
-        _countdownTimer.TimerFinished.AddListener(Leave);
-        _countdownTimer.StartTimer(_maxTime);
     }
 
     public void RecieveOrder(GameObject dropped)
@@ -26,16 +30,22 @@ public class BaseCustomer : MonoBehaviour
         if (cup != null)
         {
             _countdownTimer.StopTimer();
+            _countdownTimer?.gameObject.SetActive(false);
+            _dialogueBox?.gameObject.SetActive(true);
+            _dialogueBox?.DialogueFinished.AddListener(Leave);
             var success = DrinkValidator.ValidateDrink(cup.Ingredients, DrinkConverter.GetIngredientList(_preferredDrink), _dislikes);
             switch (success)
             {
                 case DrinkSuccess.Wrong:
+                    _dialogueBox?.SetText(_drinkWrong);
                     PlayerManager.Instance.DecreaseRating(.2f);
                     break;
                 case DrinkSuccess.Fine:
+                    _dialogueBox?.SetText(_drinkClose);
                     PlayerManager.Instance.AddCash(5);
                     break;
                 case DrinkSuccess.Perfect:
+                    _dialogueBox?.SetText(_drinkCorrect);
                     PlayerManager.Instance.IncreaseRating(.2f);
                     PlayerManager.Instance.AddCash(6);
                     break;
@@ -45,14 +55,44 @@ public class BaseCustomer : MonoBehaviour
             }
 
             Destroy(dropped);
-            Leave();
         }
     }
 
     public void Leave()
     {
-        Destroy(gameObject);
+        _dialogueBox?.gameObject.SetActive(false);
+        var lerper = GetComponent<Lerper>();
+        lerper.TargetReached.AddListener(Remove);
+        lerper.StartLerping(transform.position - Vector3.right * 12, 5);
+        StartWalking();
+    }
+
+    public void Remove()
+    {
         GameManager.Instance.NextGameState();
+        Destroy(gameObject);
+    }
+
+    public void StartDrinkOrder()
+    {
+        _animator?.SetBool("IsWalking", false);
+        _dialogueBox?.gameObject.SetActive(true);
+        _dialogueBox?.SetText(_drinkOrder);
+        _dialogueBox?.DialogueFinished.AddListener(StartDrinkMaking);
+    }
+
+    public void StartDrinkMaking()
+    {
+        _dialogueBox?.gameObject.SetActive(false);
+        _countdownTimer?.gameObject.SetActive(true);
+        _countdownTimer.TimerFinished.AddListener(Leave);
+        _countdownTimer.StartTimer(_maxTime);
+        GameManager.Instance.NextGameState();
+    }
+
+    public void StartWalking()
+    {
+        _animator?.SetBool("IsWalking", true);
     }
 }
 

@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1201200055763587030, guid: 05eb2be6c4fd8e44ebede169082fd9e4, type: 3}
+      propertyPath: _name
+      value: Steamed Milk
+      objectReference: {fileID: 0}
     - target: {fileID: 2084709591448999774, guid: 05eb2be6c4fd8e44ebede169082fd9e4, type: 3}
       propertyPath: m_Color.b
       value: 0.8537736

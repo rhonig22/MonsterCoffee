@@ -45,26 +45,20 @@ public class CustomerManager : MonoBehaviour
         _customerList.Add(new Customer() { Creature = CreatureTypes.Skeleton, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
         _customerList.Add(new Customer() { Creature = CreatureTypes.Ghost, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
         _customerList.Add(new Customer() { Creature = CreatureTypes.Reaper, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
-        _customerList.Add(new Customer() { Creature = CreatureTypes.SeaCreature, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
-        _customerList.Add(new Customer() { Creature = CreatureTypes.Cthulhu, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
     }
 
     private void Day2Customers()
     {
-        _customerList.Add(new Customer() { Creature = CreatureTypes.Skeleton, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
-        _customerList.Add(new Customer() { Creature = CreatureTypes.Ghost, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
-        _customerList.Add(new Customer() { Creature = CreatureTypes.Reaper, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
         _customerList.Add(new Customer() { Creature = CreatureTypes.SeaCreature, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
         _customerList.Add(new Customer() { Creature = CreatureTypes.Cthulhu, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
+        _customerList.Add(new Customer() { Creature = CreatureTypes.Reaper, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
     }
 
     private void Day3Customers()
     {
-        _customerList.Add(new Customer() { Creature = CreatureTypes.Skeleton, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
-        _customerList.Add(new Customer() { Creature = CreatureTypes.Ghost, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
-        _customerList.Add(new Customer() { Creature = CreatureTypes.Reaper, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
-        _customerList.Add(new Customer() { Creature = CreatureTypes.SeaCreature, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
-        _customerList.Add(new Customer() { Creature = CreatureTypes.Cthulhu, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.Plain });
+        _customerList.Add(new Customer() { Creature = CreatureTypes.Skeleton, FaceModifier = FaceModifier.EyePatch, HeadModifier = HeadModifier.Plain });
+        _customerList.Add(new Customer() { Creature = CreatureTypes.Ghost, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.PirateHat });
+        _customerList.Add(new Customer() { Creature = CreatureTypes.Cthulhu, FaceModifier = FaceModifier.Plain, HeadModifier = HeadModifier.PirateHat });
     }
 
     public bool HasMoreCustomers()

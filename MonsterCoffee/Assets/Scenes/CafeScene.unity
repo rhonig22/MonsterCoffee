@@ -600,6 +600,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentState: 0
+--- !u!4 &430429031 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5728070838130171348, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
+  m_PrefabInstance: {fileID: 5728070838526283443}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &430429032 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5728070838130171355, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
+  m_PrefabInstance: {fileID: 5728070838526283443}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eac3f9b26682174299e5651d2b2b84c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &438678294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,6 +1574,7 @@ Transform:
   - {fileID: 1447456435}
   - {fileID: 102264483}
   - {fileID: 349344500}
+  - {fileID: 430429031}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2271,12 +2288,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _smallCupGen: {fileID: 1678301542}
   _largeCupGen: {fileID: 6050655345841101076}
-  _generators:
-  - {fileID: 5282811484721260440}
-  - {fileID: 3972805292728317432}
-  - {fileID: 4607219240324348662}
-  - {fileID: 5133173104471440397}
-  - {fileID: 9004370251601778160}
+  _espressoMachine: {fileID: 5282811484721260440}
+  _milkSteamer: {fileID: 3972805292728317432}
+  _kettle: {fileID: 9004370251601778160}
+  _chocolateGen: {fileID: 4607219240324348662}
+  _teaGen: {fileID: 5133173104471440397}
+  _iceGen: {fileID: 430429032}
 --- !u!4 &2084618341 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1288627019257661688, guid: 3c477909fb35a6d45bca27700508a0fd, type: 3}
@@ -2445,6 +2462,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChocolateGenerator
       objectReference: {fileID: 0}
+    - target: {fileID: 6172278963421303271, guid: 3c477909fb35a6d45bca27700508a0fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c477909fb35a6d45bca27700508a0fd, type: 3}
 --- !u!114 &4607219240324348662 stripped
@@ -2468,6 +2489,10 @@ PrefabInstance:
     - target: {fileID: 5861940692010177755, guid: e9f6036f5f62b064ea74bc7b25f628bd, type: 3}
       propertyPath: m_Name
       value: TeaGenerator
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861940692010177755, guid: e9f6036f5f62b064ea74bc7b25f628bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8993289575236481506, guid: e9f6036f5f62b064ea74bc7b25f628bd, type: 3}
       propertyPath: m_RootOrder
@@ -2655,6 +2680,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54469890d4c0e14f84d844b4f49701e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &5728070838526283443
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1369059228}
+    m_Modifications:
+    - target: {fileID: 5728070838130171348, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728070838130171348, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728070838130171348, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728070838130171348, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728070838130171348, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728070838130171348, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728070838130171348, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728070838130171348, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728070838130171348, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728070838130171348, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728070838130171348, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728070838130171349, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
+      propertyPath: m_Name
+      value: IceGenerator
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728070838130171349, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da33c3ff349d6004e8853e392a1b9e0c, type: 3}
 --- !u!1001 &6050655345841101075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2673,6 +2759,10 @@ PrefabInstance:
     - target: {fileID: 6050655346804326616, guid: fd41633d31ece544f858000e926064ee, type: 3}
       propertyPath: m_Name
       value: LargeCupGenerator
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050655346804326616, guid: fd41633d31ece544f858000e926064ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6050655346804326620, guid: fd41633d31ece544f858000e926064ee, type: 3}
       propertyPath: m_Size.x
@@ -2887,6 +2977,10 @@ PrefabInstance:
     - target: {fileID: 9004370251923785500, guid: 9d90a64e17877fa4caaa00a9f07685d7, type: 3}
       propertyPath: m_Name
       value: Kettle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004370251923785500, guid: 9d90a64e17877fa4caaa00a9f07685d7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d90a64e17877fa4caaa00a9f07685d7, type: 3}

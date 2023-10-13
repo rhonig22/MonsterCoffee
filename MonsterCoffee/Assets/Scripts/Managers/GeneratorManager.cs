@@ -7,7 +7,7 @@ public class GeneratorManager : MonoBehaviour
     public static GeneratorManager Instance;
 
     [SerializeField] private CupGenerator _smallCupGen, _largeCupGen;
-    [SerializeField] private List<BaseGenerator> _generators = new List<BaseGenerator>();
+    [SerializeField] private BaseGenerator _espressoMachine, _milkSteamer, _kettle, _chocolateGen, _teaGen, _iceGen;
 
     private void Awake()
     {
@@ -24,5 +24,22 @@ public class GeneratorManager : MonoBehaviour
     {
         _smallCupGen.CanGenerate = false;
         _largeCupGen.CanGenerate = false;
+    }
+
+    public void EnableDay(int day)
+    {
+        switch (day) {
+            case 2:
+                _teaGen.gameObject.SetActive(true);
+                _kettle.gameObject.SetActive(true);
+                break;
+            case 3:
+                _largeCupGen.gameObject.SetActive(true);
+                _chocolateGen.gameObject.SetActive(true);
+                _iceGen.gameObject.SetActive(true);
+                break;
+            default:
+                break;
+        }
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public readonly int MaxDays = 1;
+    public readonly int MaxDays = 3;
 
     [SerializeField] private GameState _currentState = GameState.StartDay;
 
@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
                 if (PlayerManager.Instance.DayCount == 1)
                     PlayerManager.Instance.UpdateAllUX();
                 CustomerManager.Instance.SetUpCustomersForTheDay(PlayerManager.Instance.DayCount);
+                GeneratorManager.Instance.EnableDay(PlayerManager.Instance.DayCount);
                 UXManager.Instance.ShowDayBoard(PlayerManager.Instance.DayCount);
                 break;
             case GameState.SpawnCustomer:

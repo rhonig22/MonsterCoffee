@@ -25,6 +25,11 @@ public class PlayerManager : MonoBehaviour
     {
         if (CurrentlyDragging == null || target == null)
         {
+            if (CurrentlyDragging != null)
+            {
+                CurrentlyDragging.GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID("Default");
+            }
+
             CurrentlyDragging = target;
             if (CurrentlyDragging != null)
             {
